@@ -7,9 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-/**
- * Created by temelt on 3.02.2019.
- */
+
 @Entity
 @Table(name = "project")
 @Getter

@@ -8,9 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by temelt on 3.02.2019.
- */
+
 @Entity
 @Table(name = "issue")
 @Getter

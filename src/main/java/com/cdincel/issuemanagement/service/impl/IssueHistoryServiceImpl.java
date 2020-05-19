@@ -12,12 +12,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class issueHistoryServiceImpl implements IssueHistoryService {
+public class IssueHistoryServiceImpl implements IssueHistoryService {
 
     private final IssueHistoryRepository issueHistoryRepository;
     private final ModelMapper modelMapper;
 
-    public issueHistoryServiceImpl(IssueHistoryRepository issueHistoryRepository,ModelMapper modelMapper) {
+    public IssueHistoryServiceImpl(IssueHistoryRepository issueHistoryRepository, ModelMapper modelMapper) {
         this.issueHistoryRepository = issueHistoryRepository;
         this.modelMapper = modelMapper;
     }//inject ediyoruz const injection; final etiketi verince runtime da değişmesi engelleniyor. O nesne güvenli hale geliyor, bu şekilde injection tavsiye ediliyor

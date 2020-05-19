@@ -1,18 +1,21 @@
 package com.cdincel.issuemanagement.service;
 
+import com.cdincel.issuemanagement.dto.ProjectDto;
 import com.cdincel.issuemanagement.entity.IssueHistory;
 import com.cdincel.issuemanagement.entity.Project;
 import com.cdincel.issuemanagement.entity.User;
+import com.cdincel.issuemanagement.util.Tpage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface ProjectService {
-    Project save(Project project);
-    Project getById(Long Id);
-    List<Project> getByProjectCode(String ProjectCode);
+    ProjectDto save(ProjectDto project);
+    ProjectDto getById(Long Id);
+    Project getByProjectCode(String ProjectCode);
     List<Project> getByProjectCodeContains(String projectCode);
-    Page<Project> getAllPageable (Pageable pageable);
+    Tpage<ProjectDto> getAllPageable (Pageable pageable);
     Boolean delete (Project project);
+    ProjectDto update (Long id , ProjectDto project);
 }

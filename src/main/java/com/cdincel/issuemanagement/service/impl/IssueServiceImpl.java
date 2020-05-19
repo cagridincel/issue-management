@@ -10,14 +10,16 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
-public class issueServiceImpl implements IssueService {
+@Service
+public class IssueServiceImpl implements IssueService {
 
     private final IssueRepository issueRepository;
     private final ModelMapper modelMapper;
-    public issueServiceImpl (IssueRepository issueRepository, ModelMapper modelMapper) {
+    public IssueServiceImpl(IssueRepository issueRepository, ModelMapper modelMapper) {
         this.issueRepository = issueRepository;
         this.modelMapper = modelMapper;
     }//inject ediyoruz const injection; final etiketi verince runtime da değişmesi engelleniyor. O nesne güvenli hale geliyor, bu şekilde injection tavsiye ediliyor
@@ -36,7 +38,7 @@ public class issueServiceImpl implements IssueService {
 
     @Override
     public IssueDto getById(Long Id) {
-        return null;
+        return modelMapper.map(issueRepository.getOne(Id),IssueDto.class);
     }
 
     @Override
@@ -49,14 +51,16 @@ public class issueServiceImpl implements IssueService {
     }
 
     @Override
-    public Boolean delete(IssueDto issue) {
-        return null;
+    public Boolean delete(Long issueId) {
+        issueRepository.deleteById(issueId);
+        return true;
     }
 
 
-
-
-
+    @Override
+    public IssueDto update(Long id, IssueDto issue) {
+        return null;
+    }
 
 
 }
